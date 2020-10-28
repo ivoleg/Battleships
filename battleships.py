@@ -2,13 +2,20 @@
 
 
 def is_sunk(ship):
-    #test commit
-    #remove pass and add your implementation
-    pass
+    if ship[3] == len(ship[4]):
+        return True
+    else:
+        return False
 
 def ship_type(ship):
-    #remove pass and add your implementation
-    pass
+    if ship[3] == 4:
+        return 'battleship'
+    elif ship[3] == 3:
+        return 'cruiser'
+    elif ship[3] == 2:
+        return 'destroyer'
+    else:
+        return 'submarine'
 
 def is_open_sea(row, column, fleet):
     #remove pass and add your implementation
