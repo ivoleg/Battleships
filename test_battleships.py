@@ -61,3 +61,6 @@ def test_are_unsunk_ships_left1():
     assert are_unsunk_ships_left(fleet) == True
     #provide at least five tests in total for are_unsunk_ships_left by the project submission deadline
     
+def test_filled_squares(): #test for filled_squares
+    ship = (1, 1, True, 1, {})
+    assert filled_squares(ship) == set([(0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2)])
