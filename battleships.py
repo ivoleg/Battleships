@@ -17,9 +17,31 @@ def ship_type(ship):
     else:
         return 'submarine'
 
+def filled_squares(ship): #function find and store as set of tuples all the squares of the given ship and its adjacent squares
+    set_of_squares = set()
+    if ship[2] == True:
+        for i in range(ship[0] - 1, ship[0] + 2):
+            for j in range(ship[1] - 1, ship[1] + ship[3] + 1):
+                square = (i,j)
+                set_of_squares.add(square)
+    elif ship[2] == False:
+        for i in range(ship[0] - 1, ship[0] + ship[3] + 1):
+            for j in range(ship[1] - 1, ship[1] + 2):
+                square = (i,j)
+                set_of_squares.add(square)
+    return set_of_squares
+
 def is_open_sea(row, column, fleet):
-    #remove pass and add your implementation
-    pass
+    square = (row, column)
+    all_filled_squares = set()
+    for ship in fleet:
+        ship_squares = filled_squares(ship)
+        all_filled_squares.update(ship_squares)
+    if square in all_filled_squares:
+        return False
+    else:
+        return True
+
 
 def ok_to_place_ship_at(row, column, horizontal, length, fleet):
     #remove pass and add your implementation
