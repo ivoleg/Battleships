@@ -111,12 +111,32 @@ def test_hit1():
     #provide at least five tests in total for hit by the project submission deadline
 
 def test_are_unsunk_ships_left1():
-    fleet = [(1, 1, True, 1, set()), (2, 8, True, 1, set()), (9, 0, True, 1, set()), (8, 9, True, 1, set()),
+    fleet1 = [(1, 1, True, 1, set()), (2, 8, True, 1, set()), (9, 0, True, 1, set()), (8, 9, True, 1, set()),
              (1, 4, False, 2, set()), 
              (0, 7, True, 2, set()), (5, 0, False, 2, set()), (4, 6, True, 3, set()), (7, 6, False, 3, set()), 
              (5, 2, False, 4, set())]
-    assert are_unsunk_ships_left(fleet) == True
-    #provide at least five tests in total for are_unsunk_ships_left by the project submission deadline
+    assert are_unsunk_ships_left(fleet1) == True
+    fleet2 = [(4, 6, False, 4, {(4,6), (5,6), (6,6), (7,6)}), (0, 5, False, 3, {(0,5), (1,5), (2,5)}), 
+              (6, 1, True, 3, {(6,1), (6,2), (6,3)}), (1, 3, False, 2, {(1,3), (2,3)}), (0, 8, False, 2, {(0,8), (1,8)}), 
+              (9, 0, True, 2, {(9,0), (9,1)}), (3, 9, False, 1, {(3,9)}), (8, 8, False, 1, {(8,8)}), (2, 1, False, 1, {(2,1)}), 
+              (5, 8, False, 1, {(5,8)})]
+    assert are_unsunk_ships_left(fleet2) == False
+    fleet3 = [(9, 3, True, 4, set()), (3, 5, True, 3, set()), (0, 0, True, 3, set()), (6, 9, False, 2, set()), 
+              (0, 7, True, 2, set()), 
+              (5, 4, True, 2, set()), (7, 7, True, 1, {(7,7)}), (9, 8, True, 1, {(9,8)}), (7, 4, True, 1, {(7,4)}), 
+              (2, 1, True, 1, {(2,1)})]
+    assert are_unsunk_ships_left(fleet3) == True
+    fleet4 = [(2, 8, False, 4, {(2,8), (3,8), (4,8)}), (6, 0, True, 3, {(6,0), (6, 1)}), (5, 4, True, 3, {(5,4), (5, 5)}),
+              (7, 5, False, 2, {(7,5)}), (1, 5, False, 2, {(2,5)}), 
+              (3, 1, True, 2, {(3,1)}), (8, 8, False, 1, set()), (1, 2, True, 1, {(1,2)}), (0, 8, False, 1, {(0,8)}), 
+              (8, 1, False, 1, set())]
+    assert are_unsunk_ships_left(fleet4) == True
+    fleet5 = [(5, 6, False, 4, {(5,6), (6,6), (8,6), (7,6)}), (0, 0, False, 3, {(0,0), (0, 1), (0,2)}), 
+              (4, 8, False, 3, set()), (7, 2, False, 2, {(7,2), (8,2)}),
+              (2, 4, False, 2, {(2,4), (3,4)}), (0, 6, False, 2, {(0,6), (1,6)}), 
+              (6, 0, False, 1, {(6,0)}), (5, 2, True, 1, {(5,2)}), (3, 6, False, 1, {(3,6)}), 
+              (9, 4, True, 1, {(9,4)})]
+    assert are_unsunk_ships_left(fleet5) == True
     
 def test_used_squares(): #test for used_squares
     ship = (1, 1, True, 1, set())
