@@ -1,4 +1,4 @@
-# see the readme.md file for description and data 
+### see the readme.md file for description and data 
 import copy
 import random
 
@@ -51,7 +51,7 @@ def ship_squares(ship): #function stores only ship squares as a set of tuples
             ship_sq.add((i, ship[1]))
     return ship_sq
 
-def fleet_squares(fleet): #function stores fleet squares as a set of tuples
+def fleet_squares(fleet): #function stores fleet as a set of tuples
     fleet_sq = set()
     for ship in fleet:
         fleet_sq.update(ship_squares(ship))
@@ -120,11 +120,10 @@ def main():
     #the implementation provided below is indicative only
     #you should improve it or fully rewrite to provide better functionality (see readme file)
     current_fleet = randomly_place_all_ships()
-    print(current_fleet)
 
     game_over = False
     shots = 0
-
+    print("You can end game at any time, by entering END")
     while not game_over:
         input_str = input("Enter row and colum to shoot (separted by space): ")
         if input_str == 'END':
@@ -145,7 +144,7 @@ def main():
                     else:
                         print("You missed!")
                 else:
-                    print("Please, use correct input ")
+                    print("This square does not exist")
             except:
                 print("Please, use correct input")
                 
